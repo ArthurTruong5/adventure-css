@@ -22,7 +22,6 @@ body {
     font-size: 16px;
     line-height: 1.7;
     color: #777;
-    padding: 25px;
 }
 
 .header {
@@ -62,6 +61,7 @@ body {
     left: 50%;
     /* the 50% is no longer in relation to the parent element but from the element itself */
     transform: translate(-50%, -50%);
+    text-align: center;
 }
 
 .heading-primary {
@@ -70,6 +70,8 @@ body {
     text-transform: uppercase;
     /* since the main and sub are wrapped around the primary, we want the this to remain hidden so that our CSS animation aren't buggy. */
     backface-visibility: hidden;
+    /* we want some whitespace */
+    margin-bottom: 60px;
 }
 
 /* span by default is a inline element so its just like text */
@@ -110,6 +112,7 @@ body {
 }
 
 @keyframes moveInLeft {
+
     /* before the animation starts */
     /* NOTE: opacity is the transparency. 1 = full, 0 transparent or anything inbetween 0-1 */
     0% {
@@ -117,10 +120,12 @@ body {
         /* animate in the X direction - remember maths bro */
         transform: translateX(-100px);
     }
+
     80% {
         /* if we specify a positive value, it will go to the right side */
         transform: translateX(10px);
     }
+
     /* finished */
     100% {
         opacity: 1;
@@ -130,6 +135,7 @@ body {
 }
 
 @keyframes moveInRight {
+
     /* before the animation starts */
     /* NOTE: opacity is the transparency. 1 = full, 0 transparent or anything inbetween 0-1 */
     0% {
@@ -137,14 +143,50 @@ body {
         /* animate in the X direction - remember maths bro */
         transform: translateX(100px);
     }
+
     80% {
         /* if we specify a positive value, it will go to the right side */
         transform: translateX(-10px);
     }
+
     /* finished */
     100% {
         opacity: 1;
         /* goes back to being normal again */
         transform: translate(0);
     }
+}
+
+/* pseudo class */
+
+/* btn:link is the state of the hover selector */
+/* btn:visited is the state when a user has already clicked the link */
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    /* gets rid of all the default css */
+    text-decoration: none;
+    /* makes the button bigger */
+    padding: 15px 40px;
+    /* right now the button is hovering over the text because its an inline element. inline-block fixes this */
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+}
+
+.btn:hover {
+    /* to move up we use a negative value */
+    transform: translateY(-3px);
+    /* we can manipulate where we want our shadows */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+}
+
+/* when we click the button what happens huh? */
+.btn:active {
+    transform: translateY(-1px);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
 }
