@@ -6,3 +6,35 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+/* Universal selector */
+
+* {
+  margin: 0;
+  padding: 0;
+  /* change box model so that the border and the paddings are no longer added to the total width and the total height that is specified for the box. this doesn't add any paddings or width to the box */
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  padding: 25px;
+}
+
+.header {
+  /* 95% of the viewpoint height */
+  height: 95vh;
+  /* gradient will show from right to bottom */
+  background-image: linear-gradient(to right bottom, #7ed56fd0, #55c57a8c),
+    url(../img/hero.jpg);
+  /* whatever the width of the viewpoint is, it tries to fit the element inside the box */
+  background-size: cover;
+  /* the image always stays the same on top of the container */
+  background-position: top;
+  /* polygons. adding cordinates  */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
