@@ -68,6 +68,8 @@ body {
     color: #ffffff;
     /* change text to uppercase */
     text-transform: uppercase;
+    /* since the main and sub are wrapped around the primary, we want the this to remain hidden so that our CSS animation aren't buggy. */
+    backface-visibility: hidden;
 }
 
 /* span by default is a inline element so its just like text */
@@ -79,6 +81,20 @@ body {
     font-size: 60px;
     /* spaces the letter */
     letter-spacing: 35px;
+    /* kind of like invoking a function in javascript but with css lol  */
+    animation-name: moveInLeft;
+    /* duation of the animation */
+    animation-duration: 2s;
+    /* 
+    we can also do animation delays too, like this
+    animation-delay: 3s;
+    ---
+    we can iterate (loop) an animation
+    animation-iteration-count: 3;
+    ---
+    animation progress through duration of a cycle. - look up MDN web docs for more info
+    animation-timing-function: ease-in;
+    */
 }
 
 .header-primary-sub {
@@ -88,4 +104,47 @@ body {
     font-weight: 700;
     /* spaces the letter */
     letter-spacing: 17.4px;
+    /* kind of like invoking a function in javascript but with css lol  */
+    animation-name: moveInRight;
+    animation-duration: 2s;
+}
+
+@keyframes moveInLeft {
+    /* before the animation starts */
+    /* NOTE: opacity is the transparency. 1 = full, 0 transparent or anything inbetween 0-1 */
+    0% {
+        opacity: 0;
+        /* animate in the X direction - remember maths bro */
+        transform: translateX(-100px);
+    }
+    80% {
+        /* if we specify a positive value, it will go to the right side */
+        transform: translateX(10px);
+    }
+    /* finished */
+    100% {
+        opacity: 1;
+        /* goes back to being normal again */
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    /* before the animation starts */
+    /* NOTE: opacity is the transparency. 1 = full, 0 transparent or anything inbetween 0-1 */
+    0% {
+        opacity: 0;
+        /* animate in the X direction - remember maths bro */
+        transform: translateX(100px);
+    }
+    80% {
+        /* if we specify a positive value, it will go to the right side */
+        transform: translateX(-10px);
+    }
+    /* finished */
+    100% {
+        opacity: 1;
+        /* goes back to being normal again */
+        transform: translate(0);
+    }
 }
