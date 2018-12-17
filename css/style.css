@@ -157,6 +157,24 @@ body {
     }
 }
 
+@keyframes moveInBottom {
+
+    /* before the animation starts */
+    /* NOTE: opacity is the transparency. 1 = full, 0 transparent or anything inbetween 0-1 */
+    0% {
+        opacity: 0;
+        /* animate in the X direction - remember maths bro */
+        transform: translateY(30px);
+    }
+
+    /* finished */
+    100% {
+        opacity: 1;
+        /* goes back to being normal again */
+        transform: translate(0);
+    }
+}
+
 /* pseudo class */
 
 /* btn:link is the state of the hover selector */
@@ -172,6 +190,8 @@ body {
     display: inline-block;
     border-radius: 100px;
     transition: all .2s;
+    /* parent */
+    position: relative;
 }
 
 .btn:hover {
@@ -189,4 +209,41 @@ body {
 .btn-white {
     background-color: #fff;
     color: #777;
+    animation-name: moveInBottom;
+    animation-duration: 1s;
+}
+
+.btn::after {
+    /* always have a content and display property when you this type of pseudo class */
+    content: "";
+    /* button has its in block yh boi */
+    display: inline-block;
+    /* 100% width of button */
+    width: 100%;
+    height: 100%;
+    border-radius: 100px;
+    /* child - finds the nearest relative */
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* behind the button. we only want to see it if we hover over the button */
+    z-index: -1;
+    transition: all .4s
+}
+
+.btn-white::after {
+    background-color: #fff;
+}
+
+.btn:hover::after {
+    /* increases the element */
+    transform: scaleX(1.4) scaleY(1.6);
+    /* fade out */
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInBottom .5s ease-out .75s;
+    /* automatically apply the styles to 0% before the animation starts */
+    animation-fill-mode: backwards;
 }
