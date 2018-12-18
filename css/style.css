@@ -6,97 +6,93 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
-
 /* Universal selector */
-
 *,
 *::after,
 *::before {
-    margin: 0;
-    padding: 0;
-    /* inherits all properies from box-sizing */
-    box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  /* inherits all properies from box-sizing */
+  box-sizing: inherit;
 }
 
 body {
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
-    font-size: 1.6rem;
-    line-height: 1.7;
-    color: #777;
-    /* change box model so that the border and the paddings are no longer added to the total width and the total height that is specified for the box. this doesn't add any paddings or width to the box */
-    box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color: #777;
+  /* change box model so that the border and the paddings are no longer added to the total width and the total height that is specified for the box. this doesn't add any paddings or width to the box */
+  box-sizing: border-box;
 }
 
 html {
-    /* we're going to convert everything to rem. 1 rem = 10px */
-    font-size: 62.5%;
+  /* we're going to convert everything to rem. 1 rem = 10px */
+  font-size: 62.5%;
 }
 
 .header {
-    /* 95% of the viewpoint height */
-    height: 95vh;
-    /* gradient will show from right to bottom */
-    background-image: linear-gradient(to right bottom, #7ed56fd0, #55c57a8c), url(../img/hero.jpg);
-    /* whatever the width of the viewpoint is, it tries to fit the element inside the box */
-    background-size: cover;
-    /* the image always stays the same on top of the container */
-    background-position: top;
-    /* polygons. adding cordinates  */
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-    /* header is the parent element */
-    position: relative;
+  /* 95% of the viewpoint height */
+  height: 95vh;
+  /* gradient will show from right to bottom */
+  background-image: linear-gradient(to right bottom, #7ed56fd0, #55c57a8c), url(../img/hero.jpg);
+  /* whatever the width of the viewpoint is, it tries to fit the element inside the box */
+  background-size: cover;
+  /* the image always stays the same on top of the container */
+  background-position: top;
+  /* polygons. adding cordinates  */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* header is the parent element */
+  position: relative;
 }
 
 .logo-box {
-    /* use absolute positioning to put the image where we exactly want it to be. ALSO NOTE: that logo box is the child element thus position is aboluste */
-    position: absolute;
-    /* movement of logo */
-    top: 4rem;
-    left: 4rem;
+  /* use absolute positioning to put the image where we exactly want it to be. ALSO NOTE: that logo box is the child element thus position is aboluste */
+  position: absolute;
+  /* movement of logo */
+  top: 4rem;
+  left: 4rem;
 }
 
 .logo {
-    /* change the image size of logo */
-    height: 3.5rem;
+  /* change the image size of logo */
+  height: 3.5rem;
 }
 
 /* whats the best way to put shit in the middle? i used to just margin and pad it to the middle. fk i needed to use positioning? WTF? should have learnt css early lmao. sorry for any HR person looking at this. just very frustrated with css atm */
-
 .text-box {
-    /* child element */
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    /* the 50% is no longer in relation to the parent element but from the element itself */
-    transform: translate(-50%, -50%);
-    text-align: center;
+  /* child element */
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  /* the 50% is no longer in relation to the parent element but from the element itself */
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .heading-primary {
-    color: #ffffff;
-    /* change text to uppercase */
-    text-transform: uppercase;
-    /* since the main and sub are wrapped around the primary, we want the this to remain hidden so that our CSS animation aren't buggy. */
-    backface-visibility: hidden;
-    /* we want some whitespace */
-    margin-bottom: 6rem;
+  color: #ffffff;
+  /* change text to uppercase */
+  text-transform: uppercase;
+  /* since the main and sub are wrapped around the primary, we want the this to remain hidden so that our CSS animation aren't buggy. */
+  backface-visibility: hidden;
+  /* we want some whitespace */
+  margin-bottom: 6rem;
 }
 
 /* span by default is a inline element so its just like text */
-
 .header-primary-main {
-    /* do it doesnt align together and has its own block */
-    display: block;
-    font-weight: 400;
-    font-size: 6rem;
-    /* spaces the letter */
-    letter-spacing: 3.5rem;
-    /* kind of like invoking a function in javascript but with css lol  */
-    animation-name: moveInLeft;
-    /* duation of the animation */
-    animation-duration: 2s;
-    /* 
+  /* do it doesnt align together and has its own block */
+  display: block;
+  font-weight: 400;
+  font-size: 6rem;
+  /* spaces the letter */
+  letter-spacing: 3.5rem;
+  /* kind of like invoking a function in javascript but with css lol  */
+  animation-name: moveInLeft;
+  /* duation of the animation */
+  animation-duration: 2s;
+  /* 
     we can also do animation delays too, like this
     animation-delay: 3s;
     ---
@@ -109,150 +105,149 @@ html {
 }
 
 .header-primary-sub {
-    /* do it doesnt align together and has its own block */
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    /* spaces the letter */
-    letter-spacing: 1.74rem;
-    /* kind of like invoking a function in javascript but with css lol  */
-    animation-name: moveInRight;
-    animation-duration: 2s;
+  /* do it doesnt align together and has its own block */
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  /* spaces the letter */
+  letter-spacing: 1.74rem;
+  /* kind of like invoking a function in javascript but with css lol  */
+  animation-name: moveInRight;
+  animation-duration: 2s;
 }
 
 @keyframes moveInLeft {
 
-    /* before the animation starts */
-    /* NOTE: opacity is the transparency. 1 = full, 0 transparent or anything inbetween 0-1 */
-    0% {
-        opacity: 0;
-        /* animate in the X direction - remember maths bro */
-        transform: translateX(-10rem);
-    }
+  /* before the animation starts */
+  /* NOTE: opacity is the transparency. 1 = full, 0 transparent or anything inbetween 0-1 */
+  0% {
+    opacity: 0;
+    /* animate in the X direction - remember maths bro */
+    transform: translateX(-10rem);
+  }
 
-    80% {
-        /* if we specify a positive value, it will go to the right side */
-        transform: translateX(1rem);
-    }
+  80% {
+    /* if we specify a positive value, it will go to the right side */
+    transform: translateX(1rem);
+  }
 
-    /* finished */
-    100% {
-        opacity: 1;
-        /* goes back to being normal again */
-        transform: translate(0);
-    }
+  /* finished */
+  100% {
+    opacity: 1;
+    /* goes back to being normal again */
+    transform: translate(0);
+  }
 }
 
 @keyframes moveInRight {
 
-    /* before the animation starts */
-    /* NOTE: opacity is the transparency. 1 = full, 0 transparent or anything inbetween 0-1 */
-    0% {
-        opacity: 0;
-        /* animate in the X direction - remember maths bro */
-        transform: translateX(10rem);
-    }
+  /* before the animation starts */
+  /* NOTE: opacity is the transparency. 1 = full, 0 transparent or anything inbetween 0-1 */
+  0% {
+    opacity: 0;
+    /* animate in the X direction - remember maths bro */
+    transform: translateX(10rem);
+  }
 
-    80% {
-        /* if we specify a positive value, it will go to the right side */
-        transform: translateX(-1rem);
-    }
+  80% {
+    /* if we specify a positive value, it will go to the right side */
+    transform: translateX(-1rem);
+  }
 
-    /* finished */
-    100% {
-        opacity: 1;
-        /* goes back to being normal again */
-        transform: translate(0);
-    }
+  /* finished */
+  100% {
+    opacity: 1;
+    /* goes back to being normal again */
+    transform: translate(0);
+  }
 }
 
 @keyframes moveInBottom {
 
-    /* before the animation starts */
-    /* NOTE: opacity is the transparency. 1 = full, 0 transparent or anything inbetween 0-1 */
-    0% {
-        opacity: 0;
-        /* animate in the X direction - remember maths bro */
-        transform: translateY(3rem);
-    }
+  /* before the animation starts */
+  /* NOTE: opacity is the transparency. 1 = full, 0 transparent or anything inbetween 0-1 */
+  0% {
+    opacity: 0;
+    /* animate in the X direction - remember maths bro */
+    transform: translateY(3rem);
+  }
 
-    /* finished */
-    100% {
-        opacity: 1;
-        /* goes back to being normal again */
-        transform: translate(0);
-    }
+  /* finished */
+  100% {
+    opacity: 1;
+    /* goes back to being normal again */
+    transform: translate(0);
+  }
 }
 
 /* pseudo class */
-
 /* btn:link is the state of the hover selector */
 /* btn:visited is the state when a user has already clicked the link */
 .btn:link,
 .btn:visited {
-    text-transform: uppercase;
-    /* gets rid of all the default css */
-    text-decoration: none;
-    /* makes the button bigger */
-    padding: 1.5rem 4rem;
-    /* right now the button is hovering over the text because its an inline element. inline-block fixes this */
-    display: inline-block;
-    border-radius: 10rem;
-    transition: all .2s;
-    /* parent */
-    position: relative;
+  text-transform: uppercase;
+  /* gets rid of all the default css */
+  text-decoration: none;
+  /* makes the button bigger */
+  padding: 1.5rem 4rem;
+  /* right now the button is hovering over the text because its an inline element. inline-block fixes this */
+  display: inline-block;
+  border-radius: 10rem;
+  transition: all 0.2s;
+  /* parent */
+  position: relative;
 }
 
 .btn:hover {
-    /* to move up we use a negative value */
-    transform: translateY(-0.3rem);
-    /* we can manipulate where we want our shadows */
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
+  /* to move up we use a negative value */
+  transform: translateY(-0.3rem);
+  /* we can manipulate where we want our shadows */
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 /* when we click the button what happens huh? */
 .btn:active {
-    transform: translateY(-0.1rem);
+  transform: translateY(-0.1rem);
 }
 
 .btn-white {
-    background-color: #fff;
-    color: #777;
-    animation-name: moveInBottom;
-    animation-duration: 1s;
+  background-color: #fff;
+  color: #777;
+  animation-name: moveInBottom;
+  animation-duration: 1s;
 }
 
 .btn::after {
-    /* always have a content and display property when you this type of pseudo class */
-    content: "";
-    /* button has its in block yh boi */
-    display: inline-block;
-    /* 100% width of button */
-    width: 100%;
-    height: 100%;
-    border-radius: 10rem;
-    /* child - finds the nearest relative */
-    position: absolute;
-    top: 0;
-    left: 0;
-    /* behind the button. we only want to see it if we hover over the button */
-    z-index: -1;
-    transition: all .4s
+  /* always have a content and display property when you this type of pseudo class */
+  content: "";
+  /* button has its in block yh boi */
+  display: inline-block;
+  /* 100% width of button */
+  width: 100%;
+  height: 100%;
+  border-radius: 10rem;
+  /* child - finds the nearest relative */
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* behind the button. we only want to see it if we hover over the button */
+  z-index: -1;
+  transition: all 0.4s;
 }
 
 .btn-white::after {
-    background-color: #fff;
+  background-color: #fff;
 }
 
 .btn:hover::after {
-    /* increases the element */
-    transform: scaleX(1.4) scaleY(1.6);
-    /* fade out */
-    opacity: 0;
+  /* increases the element */
+  transform: scaleX(1.4) scaleY(1.6);
+  /* fade out */
+  opacity: 0;
 }
 
 .btn-animated {
-    animation: moveInBottom .5s ease-out .75s;
-    /* automatically apply the styles to 0% before the animation starts */
-    animation-fill-mode: backwards;
+  animation: moveInBottom 0.5s ease-out 0.75s;
+  /* automatically apply the styles to 0% before the animation starts */
+  animation-fill-mode: backwards;
 }

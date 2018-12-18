@@ -1,0 +1,22 @@
+{
+  "name": "starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArthurTruong5/adventure-css.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArthurTruong5/adventure-css/issues"
+  },
+  "homepage": "https://github.com/ArthurTruong5/adventure-css#readme",
+  "devDependencies": {
+    "node-sass": "^4.11.0"
+  }
+}
